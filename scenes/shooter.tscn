@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxwtfep4ijueu"]
+
+[ext_resource type="Script" uid="uid://bgx82ankjo6b2" path="res://scripts/shooter.gd" id="1_1e8ai"]
+[ext_resource type="Texture2D" uid="uid://2n5mfldwcme8" path="res://graphics/player/player.png" id="1_gt117"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1e8ai"]
+radius = 46.0
+
+[node name="Shooter" type="CharacterBody2D"]
+script = ExtResource("1_1e8ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -39)
+texture = ExtResource("1_gt117")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1e8ai")
