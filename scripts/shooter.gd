@@ -25,7 +25,6 @@ func _process(_delta: float) -> void:
 			var selected_projectile_location = projectile_locations[randi() % projectile_locations.size()]
 			laser_shoot.emit(selected_projectile_location.global_position)
 			can_shoot = false
-			can_throw = true
 		# throwing gernade
 		if(Input.is_action_just_pressed("secondary") and can_throw):
 			print("throw gernade")
@@ -33,5 +32,12 @@ func _process(_delta: float) -> void:
 			var selected_projectile_location = projectile_locations[randi() % projectile_locations.size()]
 			gernade_throw.emit(selected_projectile_location.global_position)
 			can_throw = false
-			can_shoot = true
 	
+
+
+func _on_laser_timer_timeout() -> void:
+	can_shoot = true
+
+
+func _on_gernade_timer_timeout() -> void:
+	can_shoot = true

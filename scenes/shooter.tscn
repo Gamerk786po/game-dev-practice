@@ -26,3 +26,14 @@ position = Vector2(23, -135)
 
 [node name="Marker2D3" type="Marker2D" parent="ProjectileLocations"]
 position = Vector2(33, -130)
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="GernadeTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="GernadeTimer" to="." method="_on_gernade_timer_timeout"]
