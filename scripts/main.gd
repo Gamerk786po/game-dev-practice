@@ -2,6 +2,7 @@ extends Node2D
 
 # Scenes
 var laser_scene: PackedScene = preload("res://scenes/Laser.tscn")
+var gernade_scene: PackedScene = preload("res://scenes/Gernade.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,3 +19,9 @@ func _on_shooter_laser_shoot(selected_projectile_location: Variant) -> void:
 	$Projectiles.add_child(laser)
 	laser.global_position = selected_projectile_location
 	
+
+
+func _on_shooter_gernade_throw(selected_projectile_location: Variant) -> void:
+	var gernade = gernade_scene.instantiate() as RigidBody2D
+	$Projectiles.add_child(gernade)
+	gernade.global_position = selected_projectile_location

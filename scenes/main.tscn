@@ -11,4 +11,5 @@ position = Vector2(577, 391)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[connection signal="gernade_throw" from="Shooter" to="." method="_on_shooter_gernade_throw"]
 [connection signal="laser_shoot" from="Shooter" to="." method="_on_shooter_laser_shoot"]
