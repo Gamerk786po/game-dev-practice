@@ -14,10 +14,12 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_shooter_laser_shoot(selected_projectile_location: Vector2) -> void:
+func _on_shooter_laser_shoot(selected_projectile_location: Vector2, projectile_direction: Vector2) -> void:
 	var laser = laser_scene.instantiate() as Area2D
 	$Projectiles.add_child(laser)
 	laser.global_position = selected_projectile_location
+	laser.rotation_degrees = rad_to_deg(projectile_direction.angle()) + 90
+	laser.direction = projectile_direction
 	
 
 
