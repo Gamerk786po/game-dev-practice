@@ -36,5 +36,9 @@ autostart = true
 wait_time = 0.5
 autostart = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="timeout" from="GernadeTimer" to="." method="_on_gernade_timer_timeout"]
