@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Signals
-signal laser_shoot(selected_projectile_location)
-signal gernade_throw(selected_projectile_location)
+signal laser_shoot(selected_projectile_location: Vector2,)
+signal gernade_throw(selected_projectile_location: Vector2, projectile_direction: Vector2)
 # Variables
 var player_speed = 700
 var can_shoot = true
@@ -31,7 +31,8 @@ func _process(_delta: float) -> void:
 			print("throw gernade")
 			var projectile_locations = $ProjectileLocations.get_children()
 			var selected_projectile_location = projectile_locations[randi() % projectile_locations.size()]
-			gernade_throw.emit(selected_projectile_location.global_position)
+			var projectile_direction = (get_global_mouse_position() - global_position).normalized()
+			gernade_throw.emit(selected_projectile_location.global_position, projectile_direction)
 			can_throw = false
 	
 

@@ -14,14 +14,16 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_shooter_laser_shoot(selected_projectile_location: Variant) -> void:
+func _on_shooter_laser_shoot(selected_projectile_location: Vector2) -> void:
 	var laser = laser_scene.instantiate() as Area2D
 	$Projectiles.add_child(laser)
 	laser.global_position = selected_projectile_location
 	
 
 
-func _on_shooter_gernade_throw(selected_projectile_location: Variant) -> void:
+func _on_shooter_gernade_throw(selected_projectile_location: Vector2, projectile_direction: Vector2) -> void:
 	var gernade = gernade_scene.instantiate() as RigidBody2D
 	$Projectiles.add_child(gernade)
+	var gernade_speed = 2000
 	gernade.global_position = selected_projectile_location
+	gernade.linear_velocity = projectile_direction * gernade_speed
