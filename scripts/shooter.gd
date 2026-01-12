@@ -17,6 +17,7 @@ func _process(_delta: float) -> void:
 		var direction_moving:Vector2 = Input.get_vector("left", "right", "up", "down") 
 		velocity = direction_moving * player_speed
 		move_and_slide()
+		look_at(get_global_mouse_position())
 		# shooting condition
 		if(Input.is_action_just_pressed("primary") and can_shoot):
 			print("Shoot Laser")
@@ -40,4 +41,4 @@ func _on_laser_timer_timeout() -> void:
 
 
 func _on_gernade_timer_timeout() -> void:
-	can_shoot = true
+	can_throw = true

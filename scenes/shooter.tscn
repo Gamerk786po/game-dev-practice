@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://2n5mfldwcme8" path="res://graphics/player/player.png" id="1_gt117"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1e8ai"]
-radius = 46.0
+radius = 53.15073
 
 [node name="Shooter" type="CharacterBody2D"]
 script = ExtResource("1_1e8ai")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -39)
+position = Vector2(35, 1)
+rotation = 1.5707964
 texture = ExtResource("1_gt117")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,13 +20,13 @@ shape = SubResource("CircleShape2D_1e8ai")
 [node name="ProjectileLocations" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="ProjectileLocations"]
-position = Vector2(13, -131)
+position = Vector2(125, 8)
 
 [node name="Marker2D2" type="Marker2D" parent="ProjectileLocations"]
-position = Vector2(23, -135)
+position = Vector2(131, 19)
 
 [node name="Marker2D3" type="Marker2D" parent="ProjectileLocations"]
-position = Vector2(33, -130)
+position = Vector2(126, 33)
 
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 0.25
