@@ -1,19 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://djx148dd5l363"]
+[gd_scene load_steps=10 format=3 uid="uid://djx148dd5l363"]
 
 [ext_resource type="Script" uid="uid://cywuyq5k7me6a" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dxwtfep4ijueu" path="res://scenes/shooter.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://du3xrhf7wbi6s" path="res://scenes/box.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://wvnq82hqa0lg" path="res://graphics/ground/stones.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://c7shvj3xlt2y8" path="res://graphics/tilesets/soil.png" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://clw4l4bvo2nhr" path="res://graphics/tilesets/outside_walls.png" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bnbguki7de4p5" path="res://scenes/home.tscn" id="6_tefeu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
+texture = ExtResource("3_tbgi4")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
+texture = ExtResource("4_tefeu")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_85g3d"]
+tile_size = Vector2i(390, 390)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_o6xl0")
+sources/1 = SubResource("TileSetAtlasSource_tipki")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_0wfyh")
 
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture_repeat = 2
+position = Vector2(10.000061, 29.000046)
+scale = Vector2(0.84840506, 0.86139476)
+texture = ExtResource("3_sugp2")
+region_enabled = true
+region_rect = Rect2(-1995.7107, -1207.3195, 6458.5967, 4015.0698)
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+tile_set = SubResource("TileSet_85g3d")
+format = 2
+layer_0/name = "soil"
+layer_0/tile_data = PackedInt32Array(-131071, 65537, 0, -131072, 65537, 0, -131070, 65537, 0, -131069, 65537, 0, -65537, 65537, 0, -65538, 65537, 1, 196606, 65537, 2, 196607, 65537, 0, 131074, 65537, 0, 131075, 65537, 0, 131076, 131073, 2, 131070, 131073, 1, 131069, 65537, 2, 65540, 65537, 1, -131068, 131073, 1, -65532, 65537, 2, 5, 1, 2, -65531, 131073, 1, 65541, 131073, 2, 131072, 65537, 0, 131073, 65537, 0, 65533, 65537, 1, 65534, 131073, 2, -2, 1, 2)
+layer_1/name = "pipe"
+
+[node name="Home" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(-9923, 441)
+
 [node name="Shooter" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(577, 391)
+position = Vector2(577, 429)
 
 [node name="Projectiles" type="Node2D" parent="."]
-
-[node name="Box" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(987, 327)
 
 [connection signal="gernade_throw" from="Shooter" to="." method="_on_shooter_gernade_throw"]
 [connection signal="laser_shoot" from="Shooter" to="." method="_on_shooter_laser_shoot"]
