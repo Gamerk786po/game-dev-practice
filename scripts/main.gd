@@ -6,13 +6,15 @@ var gernade_scene: PackedScene = preload("res://scenes/Gernade.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Home/door.door_entered.connect(on_door_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
+func on_door_entered() -> void:
+	print("Player entered")
 
 func _on_shooter_laser_shoot(selected_projectile_location: Vector2, projectile_direction: Vector2) -> void:
 	var laser = laser_scene.instantiate() as Area2D

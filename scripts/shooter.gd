@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal laser_shoot(selected_projectile_location: Vector2, projectile_direction: Vector2)
 signal gernade_throw(selected_projectile_location: Vector2, projectile_direction: Vector2)
 # Variables
-var player_speed = 700
+var player_speed = 1000
 var can_shoot = true
 var can_throw = true
 # Called when the node enters the scene tree for the first time.
