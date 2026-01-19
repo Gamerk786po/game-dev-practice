@@ -28,6 +28,6 @@ func _on_shooter_laser_shoot(selected_projectile_location: Vector2, projectile_d
 func _on_shooter_gernade_throw(selected_projectile_location: Vector2, projectile_direction: Vector2) -> void:
 	var gernade = gernade_scene.instantiate() as RigidBody2D
 	$Projectiles.add_child(gernade)
-	var gernade_speed = 2000
+	var gernade_speed = 1000
 	gernade.global_position = selected_projectile_location
 	gernade.linear_velocity = projectile_direction * gernade_speed

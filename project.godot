@@ -57,6 +57,15 @@ secondary={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="shooter"
+2d_physics/layer_2="projectiles"
+2d_physics/layer_3="enimies"
+2d_physics/layer_4="walls"
+2d_physics/layer_5="building"
+2d_physics/layer_6="door"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

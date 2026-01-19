@@ -11,5 +11,5 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_area_entered(_area: Area2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	door_entered.emit()
