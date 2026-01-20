@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu0jdnojnanmq"]
+[gd_scene load_steps=5 format=3 uid="uid://cu0jdnojnanmq"]
 
 [ext_resource type="Script" uid="uid://bxf7wa7xdp80p" path="res://scripts/laser.gd" id="1_ag3aa"]
 [ext_resource type="Texture2D" uid="uid://bcokuscsiyw72" path="res://graphics/projectiles/blue.png" id="1_xmihv"]
@@ -6,6 +6,15 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7dhc"]
 radius = 4.0
 height = 148.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ag3aa"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 21.32
+spread = 53.572
+gravity = Vector3(0, 98, 0)
+scale_max = 10.0
+color = Color(0.11764706, 0.78431374, 1, 1)
 
 [node name="Laser" type="Area2D"]
 collision_layer = 2
@@ -18,3 +27,11 @@ texture = ExtResource("1_xmihv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_a7dhc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-1, 31)
+emitting = false
+amount = 12
+lifetime = 1.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ag3aa")
